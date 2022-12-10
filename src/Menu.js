@@ -39,6 +39,22 @@ function Menu() {
                 to='/profile'
               >Profile</NavLink>
             </li>
+            <li>
+              <NavLink
+                style={({isActive}) => ({
+                    color: isActive ? 'red' : 'blue',
+                })} 
+                to='/login'
+              >Login</NavLink>
+            </li>
+            <li>
+              <NavLink
+                style={({isActive}) => ({
+                    color: isActive ? 'red' : 'blue',
+                })} 
+                to='/logout'
+              >Logout</NavLink>
+            </li>
 
           </ul>
         </nav>
