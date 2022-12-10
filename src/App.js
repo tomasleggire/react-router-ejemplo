@@ -1,6 +1,6 @@
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import { Menu } from './Menu';
-import { AuthProvider ,useAuth } from './auth';
+import { AuthProvider ,AuthRoute, useAuth } from './auth';
 import { HomePage } from './HomePage';
 import { BlogPage } from './BlogPage';
 import { ProfilePage } from './ProfilePage';
@@ -28,8 +28,22 @@ function App() {
           </Route>
 
           <Route path='/login' element={<LoginPage />} />
-          <Route path='/logout' element={<LogoutPage />} />
-          <Route path='/profile' element={<ProfilePage />} />
+          <Route 
+            path='/logout'
+            element={
+              <AuthRoute>
+                <LogoutPage />
+              </AuthRoute>
+            } 
+          />
+          <Route
+            path='/profile'
+            element={
+              <AuthRoute>
+                <ProfilePage />
+              </AuthRoute>
+            }
+          />
 
           <Route path='*' element={<p>Not found</p>} />
         </Routes>
